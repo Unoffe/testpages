@@ -31,10 +31,22 @@ class PostController extends Controller
     }
 
     public function store(CreatePostRequest $request) {
+        $path = null;
+
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $fileName = time() . '.' . $image->getClientOriginalExtension();
+
+            $path = 'images/'.$fileName;
+
+            Storage::disk('public')->put($path, \File::get($image), 'public');
+        }
+
         $post = new Post();
         $post->title = $request->get('title');
         $post->description = $request->get('description');
         $post->text = $request->get('text');
+        $post->image = $path;
         $post->active = 1;
         $post->user_id = \Auth::id();
         $post->save();

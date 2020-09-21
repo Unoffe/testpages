@@ -84,7 +84,7 @@
                                 </div>
                             @endif
 
-                            @if($post->image)
+                            @if($post && $post->image)
                                 <div class="col-md-12 mb-3">
                                     <img src="{{ url('storage/'.$post->image) }}" alt="Random image" class="img-fluid"/>
                                 </div>
