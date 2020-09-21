@@ -1,9 +1,10 @@
 1. Выкачиваем проект из репозитория
 2. composer install
 3. npm install
-4. php artisan migrate
-5. php artisan db:seed
-6. php artisan storage:link
+4. Создать .env файл (заполнить данные доступа к базе, при желании настроить mailtrap)
+5. php artisan migrate
+6. php artisan db:seed
+7. php artisan storage:link
 
 Будет создано несколько пользователей.<br>
 Четверо имеют фиксированные данные.<br>
